@@ -1,9 +1,11 @@
 from telegram.ext import Updater, InlineQueryHandler, CommandHandler
 import requests
 import re
+import pytz
 from datetime import datetime
 import schedule
-now = datetime.now()
+tz = pytz.timezone('Asia/Kolkata')
+now = datetime.now(tz)
 current_day = now.strftime("%A")
 current_time = int(now.strftime("%H%M"))
 current_time_next_hour = int(now.strftime("%H"))+1
@@ -16,16 +18,14 @@ def next(bot, update):
     "th14":"Digital Systems Class in MB 213","th15":"Machine Learning Class in MGB 106","th16":"Soft Skills Class in MGB 106",
     "fr11":"Machine Learning Lab in SJT 216","fr14":"IOT Class in MGB 106","fr16":"NoSQL Lab in SJT 122"}
     if key_to_find in daily_schedule:
-        print("Yes 'test' key exists in dict")
         message = daily_schedule.get(key_to_find)
     else:
-        x = requests.get("https://api.telegram.org/bot1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8/sendMessage?chat_id=921740638&parse_mode=Markdown&text=No period next hour. Enjoy :)")   
-    
+        x = requests.get("https://api.telegram.org/bot1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8/sendMessage?chat_id=921740638&parse_mode=Markdown&text=No period next hour. Enjoy :)")
+
 #    message = schedule.get(key_to_find)
-    
-    get_request(message)    
+
+    get_request(message)
 def get_request(messagedata):
-    print("hello"+messagedata)
     x = requests.get("https://api.telegram.org/bot1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8/sendMessage?chat_id=921740638&parse_mode=Markdown&text="+messagedata)
 
 def main():
@@ -40,4 +40,4 @@ if __name__ == '__main__':
 
 
 
-      
+
