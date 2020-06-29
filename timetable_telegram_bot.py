@@ -20,16 +20,16 @@ def next(bot, update):
     if key_to_find in daily_schedule:
         message = daily_schedule.get(key_to_find)
     else:
-        x = requests.get("https://api.telegram.org/bot1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8/sendMessage?chat_id=921740638&parse_mode=Markdown&text=No period next hour. Enjoy :)")
+        x = requests.get("https://api.telegram.org/ botapigoeshere    /sendMessage?chat_id=921740638&parse_mode=Markdown&text=No period next hour. Enjoy :)")
 
 #    message = schedule.get(key_to_find)
 
     get_request(message)
 def get_request(messagedata):
-    x = requests.get("https://api.telegram.org/bot1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8/sendMessage?chat_id=921740638&parse_mode=Markdown&text="+messagedata)
+    x = requests.get("https://api.telegram.org/   botapihere   /sendMessage?chat_id=921740638&parse_mode=Markdown&text="+messagedata)
 
 def main():
-    updater = Updater('1069722915:AAGwLWDoog259j8ejRvlsWpTuqL_tAtB8z8')
+    updater = Updater('    ')  //api goes here
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('next',next))
     updater.start_polling()
